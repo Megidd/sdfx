@@ -330,13 +330,13 @@ func mcToTet10(p [8]v3.Vec, v [8]float64, x float64, layerX, layerY, layerZ int)
 		t.V[9] = t.V[2].Add(t.V[3]).MulScalar(0.5)
 		// In the case of marching cubes algorithm to generate triangle, it's avoiding zero-area triangles by `!t.Degenerate(0)` check.
 		// In our case of marching cubes algorithm to generate tetrahedron, we can do a check too:
-		bad, _ := isBadTet10([10]v3.Vec{t.V[0], t.V[1], t.V[2], t.V[3], t.V[4], t.V[5], t.V[6], t.V[7], t.V[8], t.V[9]})
-		if /* !degenerated && */ !bad /* &&  !flat */ {
-			result = append(result, &t)
-		} else {
-			// CCX solver may throw error for this element. So, skip it.
-			// *ERROR in e_c3d: nonpositive jacobian determinant in element
-		}
+		//bad, _ := isBadTet10([10]v3.Vec{t.V[0], t.V[1], t.V[2], t.V[3], t.V[4], t.V[5], t.V[6], t.V[7], t.V[8], t.V[9]})
+		//if !degenerated && !bad &&  !flat {
+		result = append(result, &t)
+		//} else {
+		// CCX solver may throw error for this element. So, skip it.
+		// *ERROR in e_c3d: nonpositive jacobian determinant in element
+		//}
 	}
 
 	return result
