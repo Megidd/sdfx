@@ -29,6 +29,7 @@ const (
 	Circle
 	Pipe
 	I
+	Debug
 	Unknown
 )
 
@@ -90,6 +91,8 @@ func main() {
 	case I:
 		restraints = benchmarkIRestraint()
 		benchmarkRun("../../files/benchmark-I.stl", 50, 0, 3, restraints, loads, elementconfig)
+	case Debug:
+		benchmarkRun("../../files/benchmark-pipe--short.stl", 7, 0, 3, restraints, loads, elementconfig)
 	default:
 	}
 }
