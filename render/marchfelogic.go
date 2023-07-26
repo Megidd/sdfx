@@ -296,7 +296,7 @@ func mcToTet10(p [8]v3.Vec, v [8]float64, x float64, layerX, layerY, layerZ int)
 		if mcEdgeTable[index]&bit != 0 {
 			a := mcPairTable[i][0]
 			b := mcPairTable[i][1]
-			points[i] = mcInterpolateFE(p[a], p[b], v[a], v[b], x)
+			points[i] = mcInterpolate(p[a], p[b], v[a], v[b], x)
 		}
 	}
 
